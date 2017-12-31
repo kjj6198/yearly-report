@@ -37,10 +37,9 @@ export default class Star {
     );
 
     const ambientLight = new THREE.AmbientLight(0xdc8874, .5);
-    const light = new THREE.DirectionalLight(new THREE.Color('rgb(200,200,200)'));
+
 
     light.position.set(20, 10, 10);
-    this.scene.add(light);
     this.scene.add(hemisphereLight);
     this.scene.add(ambientLight);
 
