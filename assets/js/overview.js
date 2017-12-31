@@ -28,6 +28,6 @@ function drawTimeline(data) {
     .html(d => d.link ? `<a href="${d.link}" target="_blank" rel="nofollow noreferer">${d.name}</a>` : d.name)
 }
 
-d3.json('/assets/data/overview.json', (data) => {
+d3.json('./assets/data/overview.json', (data) => {
   drawTimeline(data);
 });

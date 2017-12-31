@@ -121,6 +121,6 @@ function drawIssueChart(data) {
 
 }
 
-d3.json('/assets/data/yaoya-title.json', drawWeeklyTitles);
-d3.csv('/assets/data/issue.csv', drawIssueChart);
-d3.json('/assets/data/subscribers.json', drawSubscriber);
+d3.json('./assets/data/yaoya-title.json', drawWeeklyTitles);
+d3.csv('./assets/data/issue.csv', drawIssueChart);
+d3.json('./assets/data/subscribers.json', drawSubscriber);

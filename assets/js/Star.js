@@ -52,7 +52,7 @@ export default class Star {
   }
 
   load() {
-    this.loader.load('/assets/images/star.obj', obj => {
+    this.loader.load('./assets/images/star.obj', obj => {
       obj.children[2].position.set(0, 0, 0);
       obj.children[2].material = new THREE.MeshPhongMaterial({ color: 0xf3bb02 });
 

@@ -51,4 +51,4 @@ function drawTravel(data) {
   drawImages('#tokyo > .image-container', tokyo);
 }
 
-d3.json('/assets/data/images.json', drawTravel);
+d3.json('./assets/data/images.json', drawTravel);

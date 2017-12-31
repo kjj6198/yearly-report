@@ -18,4 +18,4 @@ function drawBlogPosts(data) {
     .text(d => d.summary);
 }
 
-d3.json('/assets/data/blog.json', drawBlogPosts);
+d3.json('./assets/data/blog.json', drawBlogPosts);

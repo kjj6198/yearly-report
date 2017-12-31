@@ -19,4 +19,4 @@ function drawMediumStat(data) {
     .attr('style', d => `width: ${scale(d.views)}%;`)
 }
 
-d3.json('/assets/data/medium.json', drawMediumStat);
+d3.json('./assets/data/medium.json', drawMediumStat);
