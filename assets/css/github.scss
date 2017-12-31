@@ -1,0 +1,21 @@
+
+.github-stat {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2em;
+
+  @include for-mobile {
+    display: block;
+    text-align: center;
+
+    & > div {
+      margin-bottom: 3em;
+    }
+  }
+}
+
+#github-contribution {
+  width: 95%;
+  margin-left: 3em;
+  height: 350px;
+}

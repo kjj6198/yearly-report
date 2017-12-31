@@ -1,0 +1,22 @@
+.axis.x {
+  .tick line { display: none; }
+  text {
+    fill: #586069;
+    font-size: map-get($font-size, small);
+    font-family: map-get($font, number);
+  }
+}
+
+.axis.y {
+  .domain { display: none; }
+  text {
+    fill: #586069;
+    font-size: map-get($font-size, small);
+    font-family: map-get($font, number);
+  }
+
+  line {
+    stroke: #bbb;
+    stroke-dasharray: .5em;
+  }
+}

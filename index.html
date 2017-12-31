@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./assets/js/main.bundle.css">
+  <title>Yearly Report</title>
+</head>
+<body>
+  <svg class="hidden" style="width: 0; height: 0;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+      <pattern id="highlight" patternUnits="userSpaceOnUse" width="4" height="4">
+        <path d="M 0,4 l 4,-4 M -1,1 l 2,-2
+          M 3,5 l 2,-2" stroke-width="1" shape-rendering="auto" stroke="#29c3be" stroke-linecap="square">
+        </path>
+      </pattern>
+    </defs>
+  </svg>
+  <canvas class="transition"></canvas>
+  <div class="landing">
+    <div class="avatar">
+      <img src="./assets/images/avatar.jpg" alt="">
+      <h4 class="page-transition">
+          <a href="#learning" class="subtitle learning">Learning</a>
+          <a href="#life" class="subtitle life">Life</a>
+          <a href="#overview-title" class="subtitle c-overview">Overview</a>
+        </h4>
+    </div>
+    <div class="introduction">
+      <h2 class="large-x title en">MY YEARLY REVIEW</h2>
+      <p class="intro text-gray-light">
+        在 2017 年發生了很多事（最近幾年過得實在很精彩），
+        以至於想要好好地把今年發生跟學習的事情一一記錄下來。
+        這次比較不一樣的是，我花了一天做了網頁，整理這一年裡的所有發生的大小事，以及一些我覺得很有趣的資料。
+        用這種方式來看自己如何<del>虛擲光陰</del>度過這一年，是個很有趣的方式。
+        現在一起來看看今年我做了哪些事吧。
+      </p>
+    </div>
+  </div>
+  <section class="overview">
+    <h2 id="overview-title" class="large-s text-center">Overview Timeline</h2>
+    <div id="overview"></div>
+  </section>
+  <hr>
+  <section id="learning" class="learning">
+    <div class="summary center">
+      <h1 class="large-x title learning">1. Learning</h1>
+      <p class="text-center medium-s">
+        今年在 Medium 上發布了將近 <strong>80</strong> 篇文章，部落格也寫了不少技術文，通過了<strong>日檢 N3, N2。</strong>
+        年初時也參加了第一次 <strong>IT 鐵人賽</strong>拿到佳作；成立了日語八百屋也持續了 <strong>40</strong> 多期，現在來看看一些有趣的數據吧
+      </p>
+    </div>
+    <div class="medium">
+      <h2 class="medium-l title text-center">Medium</h2>
+      <div class="stat flex space-between">
+        <span>
+          <em class="number large-l">76</em>
+          篇文章
+        </span>
+        <span>
+            <em class="number large-l">22,223</em>
+            瀏覽次數
+          </span>
+      </div>
+      <h3 class="medium-m">Medium TOP 11</h3>
+      <ol id="stat-medium">
+      </ol>
+
+      <p class="text-center medium-s">想要看更多嗎？這是我的 👉<a href="https://medium.com/@Shurado" target="_blank">Medium</a></p>
+    </div>
+    <hr>
+    <div class="blog">
+      <h2 class="medium-l title text-center em">Blog</h2>
+      <p class="maxWidth600 intro text-center medium-s">
+        部落格主要寫技術相關的文章，有時會和 Medium 重疊，因為 Medium 本身不支援 code block 與 LateX 的語法，所以如果需要大量程式碼範例或是數學的文章
+        就會放到部落格。不過可能是沒什麼在宣傳跟 SEO，也沒有一些熱門的標題，所以還是到年底累積的瀏覽量是很可憐的 <strong>2,315</strong> 人次
+      </p>
+      <div class="posts-container">
+      </div>
+    </div>
+    <hr>
+    <div class="yaoya">
+      <h2 class="medium-m title text-center em">日語八百屋</h2>
+      <div class="intro flex center">
+        <div class="wrapper maxWidth600 text-center">
+          <img class="logo" src="/assets/images/yaoya.jpg" alt="yaoya logo">
+          <p class="text-center medium-s">
+            這是我在今年三月左右創立的週刊，目前已經累積 <strong>40</strong> 多期。
+            日語八百屋會在每個禮拜一時寄送 5 ~ 15 篇不等的文章，涵蓋的範圍有日本旅遊、日文學習、日本文化、動漫、日劇等等，但主要仍以日文學習為主軸。不管是日劇迷、動漫迷、語言學習狂熱者，都可以在本週刊找到適合的文章。<br/>
+            日語八百屋，源自日語的「八百屋」。除了「蔬菜店」的意思之外，也有「很多」的意思。學語言，多的是從微不足道的小事開始，50 音、文法、單字、敬語，最後內化成自己的事物，積跬步，成千里，最後逐漸變成「八百」。
+          </p>
+        </div>
+      </div>
+      <div id="weekly" class="stat-section">
+        <span>
+          <em class="number large-x stroke">📰 41</em>
+          期週刊
+        </span>
+        <div class="titles">
+        </div>
+      </div>
+
+      <div class="stat-section">
+        <span>
+          <em class="number large-x stroke">📖 219</em>
+          篇筆記與文章
+           共
+          <em class="number large-x stroke">71,115</em>
+          字
+        </span>
+        <div id="issueChart">
+
+        </div>
+      </div>
+
+      <div class="stat-section">
+        <span>
+          <em class="number large-x stroke">👩‍👩‍👦‍👦 1463</em>
+          訂閱者
+        </span>
+        <div id="subscriberChart"></div>
+      </div>
+
+      <div>
+        <h3 class="medium-l text-center">🙇 讀者回饋 <strong class="heart">❤</strong> ️</h3>
+        <ol class="normal">
+          <li>很喜歡這種形式的閱讀~謝謝</li>
+          <li>內容多元有趣！！！每周都很期待收到信^0^</li>
+          <li>文章和新聞還有提供的一些資訊都很有趣而且實用，我很喜歡，謝謝你們的用心!!!</li>
+          <li>我覺得文化的部分也不錯，不過一下就看完了。可能沒有實際文法或是句型介紹來的充分。</li>
+          <li>感謝你們的努力，讓大家得知很多很棒的資訊，目前的我只能默默支持，希望你們繼續加油!!!!</li>
+          <li>新增加的單字表部分，非常實用，讓讀者可以學到生活用語及流行用語單子，大推！</li>
+          <li>分享的內容很多元化很有趣：)</li>
+          <li>每週一中午的休息時間，很期待讀喔 ❤</li>
+          <li>內容都很有趣每次都很期待收到下一期:)</li>
+          <li>希望可以多看到一點簡單的日文原文對照分享,每一期分享連結很有趣,很開心訂閱了這份電子報,也會分享給朋友看~支持支持!!</li>
+          <li>真的很喜歡每期關於日本有趣、新奇的文章。</li>
+          <li>謝謝你們願意提供這麼棒的內容給讀者，辛苦了</li>
+          <li>謝謝日語八百屋讓我吸收許多好玩的新知，能在緩慢自學的過程中，增添樂趣！</li>
+          <li>加油 ! 這個活動很有意義。</li>
+          <li>資訊很吸引人，每一期都會認真看過。建議有些本期單字或語型之類的資訊，謝謝</li>
+          <li>很感動您們做電子報的用心，如果可以也請繼續支持下去，加油唷!</li>
+          <li>我從一開始就訂閱了 每期都有看！ 覺得你寫的很用心很好 讓我更認識日本文化 希望你能繼續做下去 我會一直支持哈哈哈哈</li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <div class="github">
+      <h2 class="large-m title text-center em">Github</h2>
+      <p class="maxWidth600 medim-s center">
+        今年也寫了許多 Code，之前有些專案忘記 ignore bundle 過後的東西，所以 add 跟 deletion 看起來有點灌水。
+      </p>
+      <div class="github-stat">
+        <div class="contribution">
+          <h5 class="medium-s m-0">Contributions</h5>
+          <em class="number large-x underline">1,205</em>
+        </div>
+        <div class="add">
+          <h5 class="medium-s m-0">Add</h5>
+          <em class="number large-x underline">+889,516</em>
+        </div>
+        <div class="contribution">
+          <h5 class="medium-m m-0">Deletion</h5>
+          <em class="number large-x neg underline">-357,576</em>
+        </div>
+      </div>
+      <svg id="github-contribution">
+    <g id="Desktop-HD" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-63.000000, -4811.000000)">
+        <g id="contributions" transform="translate(63.000000, 4808.000000)">
+            <g id="Group" transform="translate(37.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#239A3B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(61.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(85.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(109.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(133.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(157.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(181.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(205.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(229.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#196127" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(253.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#239A3B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(277.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#196127" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#239A3B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#196127" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(301.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(325.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#239A3B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(349.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(373.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(397.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(421.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#239A3B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(445.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#239A3B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(469.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#196127" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#196127" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#239A3B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(493.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(517.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#196127" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(541.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(565.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#239A3B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(589.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(613.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(637.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(660.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(684.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#196127" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(708.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(732.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(756.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#196127" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(780.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#239A3B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(804.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(828.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#196127" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(852.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(876.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(900.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(924.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(948.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#239A3B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(972.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#239A3B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(996.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#239A3B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#239A3B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#239A3B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(1020.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(1044.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(1068.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#239A3B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(1092.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#239A3B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(1116.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(1140.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(1164.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(1188.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(1212.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(1236.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(1260.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <g id="Group" transform="translate(1284.000000, 38.000000)" fill-rule="nonzero">
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="0" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="24" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="48" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="72" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#7BC96F" x="0" y="96" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#C6E48B" x="0" y="120" width="20" height="20"></rect>
+                <rect id="Rectangle-path" fill="#EBEDF0" x="0" y="144" width="20" height="20"></rect>
+            </g>
+            <text id="Jan" fill="#000000" font-family="Helvetica" font-size="13" font-weight="normal">
+                <tspan x="61" y="13">Jan</tspan>
+            </text>
+            <text id="Feb" fill="#000000" font-family="Helvetica" font-size="13" font-weight="normal">
+                <tspan x="181" y="13">Feb</tspan>
+            </text>
+            <text id="Mar" fill="#000000" font-family="Helvetica" font-size="13" font-weight="normal">
+                <tspan x="277" y="13">Mar</tspan>
+            </text>
+            <text id="Apr" fill="#000000" font-family="Helvetica" font-size="13" font-weight="normal">
+                <tspan x="373" y="13">Apr</tspan>
+            </text>
+            <text id="May" fill="#000000" font-family="Helvetica" font-size="13" font-weight="normal">
+                <tspan x="493" y="13">May</tspan>
+            </text>
+            <text id="Jun" fill="#000000" font-family="Helvetica" font-size="13" font-weight="normal">
+                <tspan x="589" y="13">Jun</tspan>
+            </text>
+            <text id="Jul" fill="#000000" font-family="Helvetica" font-size="13" font-weight="normal">
+                <tspan x="684" y="13">Jul</tspan>
+            </text>
+            <text id="Aug" fill="#000000" font-family="Helvetica" font-size="13" font-weight="normal">
+                <tspan x="804" y="13">Aug</tspan>
+            </text>
+            <text id="Sep" fill="#000000" font-family="Helvetica" font-size="13" font-weight="normal">
+                <tspan x="900" y="13">Sep</tspan>
+            </text>
+            <text id="Oct" fill="#000000" font-family="Helvetica" font-size="13" font-weight="normal">
+                <tspan x="996" y="13">Oct</tspan>
+            </text>
+            <text id="Nov" fill="#000000" font-family="Helvetica" font-size="13" font-weight="normal">
+                <tspan x="1116" y="13">Nov</tspan>
+            </text>
+            <text id="Dec" fill="#000000" font-family="Helvetica" font-size="13" font-weight="normal">
+                <tspan x="1212" y="13">Dec</tspan>
+            </text>
+            <text id="Mon" fill="#000000" font-family="Helvetica" font-size="13" font-weight="normal">
+                <tspan x="6" y="66">Mon</tspan>
+            </text>
+            <text id="Wed" fill="#000000" font-family="Helvetica" font-size="13" font-weight="normal">
+                <tspan x="0" y="123">Wed</tspan>
+            </text>
+            <text id="Fri" fill="#000000" font-family="Helvetica" font-size="13" font-weight="normal">
+                <tspan x="15" y="174">Fri</tspan>
+            </text>
+        </g>
+    </g>
+      </svg>
+    </div>
+  </section>
+
+  <section class="daily-life">
+    <div class="summary text-center maxWidth600 flex center minHeight500">
+      <h1 id="life" class="large-x title life">2. Life</h1>
+      <p class="text-center medium-s">
+        在生活上有許多有趣的數據，今年記錄了自己平均睡眠時間（從五月初開始）、iPhone 裡面存的一些資料、收支等等，接下來看看這些資料吧
+      </p>
+    </div>
+    <h2 class="large-s text-center">Daily Life</h2>
+    <div class="daily">
+      <div class="sleep-hour text-center">
+        <h3 class="medium-s">🛏 平均睡眠時數</h3>
+        <span>
+          <em class="large-m number">5.7</em>
+          小時
+        </span>
+      </div>
+      <div class="work text-center">
+        <h3 class="medium-s">🚶 每日走路步數</h3>
+        <span>
+          <em class="large-m number">6,716</em>
+          步
+        </span>
+      </div>
+      <div class="run text-center">
+          <h3 class="medium-s">🏃 慢跑累積里程</h3>
+          <span>
+            <em class="large-m number">73.8</em>
+            公里（不要砲我QQ）
+          </span>
+      </div>
+    </div>
+    <hr>
+    <div class="travel text-center">
+      <h2 class="large-s text-center">✈️  Travel</h2>
+      <p class="maxWidth600">今年去了京都、大阪、奈良、東京、台南等等。</p>
+
+      <div id="kyoto" class="kyoto">
+        <h3 class="medium-m featured">🇯🇵 京都</h3>
+        <div class="image-container">
+
+        </div>
+      </div>
+
+      <div id="tokyo" class="tokyo">
+        <h3 class="medium-m featured">🇯🇵 東京</h3>
+        <div class="image-container">
+        </div>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="money flex space-around">
+      <div class="out">
+        <h2 class="title text-center medium-l">💸 支出</h2>
+        <span>
+          <em class="number large-m">223,935</em>
+        </span>
+      </div>
+      <div class="in text-center">
+        <h2 class="title text-center medium-l">💵 收入</h2>
+        <span>
+          <em class="number large-m">🙈</em>
+        </span>
+      </div>
+
+    </div>
+  </section>
+  <footer class="footer">
+    <h3 class="medium-m title">謝謝 2017 的大家與自己</h3>
+    <p>2018 年的目標就不一一列出了，但如果要用一句話總結，大概就是 <strong>我想做一個有用的人吧</strong></p>
+    <div class="author">
+      <span>
+        <a href="https://twitter.com/kalanyei">Twitter</a>
+        <a href="https://www.facebook.com/justkeiyi">Facebook</a>
+        <a href="https://www.shurado.com">日語八百屋</a>
+      </span>
+    </div>
+  </footer>
+
+
+<script src="./assets/js/main.bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+.blog {
+  margin: 2em 0;
+  .intro {
+    margin: 0 auto;
+    margin-bottom: 2em;
+  }
+}
+
+.posts-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1;
+  padding: 1em;
+  height: 250px;
+  overflow-y: hidden;
+  margin-right: 1.5em;
+  margin-bottom: 1em;
+  background-color: #fff;
+  box-shadow: 1px 2px 4px rgba(100,100,100,.5);
+
+  @include for-mobile {
+    flex-basis: 100%;
+    margin: .5em;
+  }
+
+  .card-title {
+    font-size: map-get($font-size, medium);
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 1em;
+  }
+
+  .card-body {
+    font-size: map-get($font-size, small);
+  }
+}

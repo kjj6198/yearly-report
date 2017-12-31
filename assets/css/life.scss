@@ -1,0 +1,13 @@
+.daily-life {
+  position: relative;
+  min-height: 500px;
+}
+
+.daily {
+  display: flex;
+  justify-content: space-around;
+
+  @include for-mobile {
+    display: block;
+  }
+}

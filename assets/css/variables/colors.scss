@@ -1,0 +1,27 @@
+$colors: (
+  landing: #2a2a2a,
+  text-dark: #282828,
+  text-normal: #333,
+  text-light: #e1e4e8,
+  number: #27cc95,
+  neg: #fe6655,
+  header-learning: "linear-gradient(to left, #25b8b2, #1f9995);",
+  header-life: "linear-gradient(to left, #fd7a5f, #ff6444);",
+);
+
+$categories: (
+#1f77b4,
+#ff7f0e,
+#2ca02c,
+#d62728,
+#9467bd,
+#8c564b,
+#e377c2,
+#7f7f7f,
+#bcbd22,
+#17becf
+);
+
+@function c($key) {
+  @return map-get($colors, $key);
+}

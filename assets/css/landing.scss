@@ -1,0 +1,109 @@
+.landing {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+
+  position: relative;
+  min-height: 450px;
+  height: 105vh;
+  background-color: c(landing);
+
+  .intro {
+    align-self: flex-start;
+  }
+
+  .avatar {
+
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 1em;
+    }
+  }
+
+  .intro {
+    max-width: 50%;
+    letter-spacing: 1px;
+    line-height: 1.8;
+    font-weight: 400;
+
+  }
+
+  & .title {
+    color: #fff;
+    text-align: left;
+    margin: 0;
+    line-height: 1;
+    font-weight: bold;
+    -webkit-text-stroke-color: #333;
+    -webkit-text-stroke-width: 1px;
+  }
+
+  &:after {
+    position: absolute;
+    z-index: 0;
+    top: 1rem;
+    right: 2rem;
+    margin: 0;
+    line-height: 1;
+    content: "2017";
+    font-weight: bold;
+    font-size: map-get($font-size, x-large);
+    color: #1f1f1f;
+    opacity: 0.75;
+
+    writing-mode: vertical-lr;
+  }
+
+  & > h4 { text-align: center; }
+  counter-reset: subtitle;
+  & .subtitle {
+    display: inline-block;
+    margin-bottom: 1em;
+    text-align: center;
+    font-stretch: condensed;
+    letter-spacing: 3px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: map-get($font-size, medium-s);
+    cursor: pointer;
+
+    transition: .3s ease all;
+
+    &:before {
+      display: inline;
+      margin-right: .5em;
+      background-image: none;
+      font-size: map-get($font-size, small);
+      color: #fff;
+      counter-increment: subtitle;
+      content: counter(subtitle);
+
+      font-family: map-get($font, number);
+    }
+
+    &:hover {
+      transform: translateX(10px);
+    }
+
+    &:not(:last-child) {
+      margin-right: 1em;
+    }
+
+    &.c-overview {
+      background-image: linear-gradient(to right, #858585, #cccccc);
+    }
+
+    &.life {
+      background-image: #{c(header-life)};
+    }
+
+    &.learning {
+      background-image: #{c(header-learning)};
+    }
+  }
+}
