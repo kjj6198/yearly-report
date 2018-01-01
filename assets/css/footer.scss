@@ -1,11 +1,16 @@
 .footer {
   margin-top: 3em;
+  padding-bottom: 1em;
   padding: 0 8px;
   position: relative;
-  min-height: 500px;
-  height: 75vh;
+  min-height: 400px;
+  height: 60vh;
   background-color: c(landing);
   color: c(text-light);
+
+  @include for-mobile {
+    height: 100%;
+  }
 
   &:before {
     color: #444;

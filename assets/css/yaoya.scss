@@ -6,6 +6,10 @@
 .yaoya { padding: 0 8px; }
 .stat-section {
   margin: 1.5em 0;
+  & > span { display: block; }
+  &:nth-child(even) {
+    & > span { text-align: right; }
+  }
 }
 
 .titles {
@@ -38,4 +42,17 @@
        content: attr(data-num);
      }
    }
+}
+
+.feedback {
+  & > li {
+    list-style: none;
+    margin-bottom: 1em;
+    &:before {
+      display: inline-block;
+      margin-right: 1em;
+      content: "🗣";
+
+    }
+  }
 }

@@ -22,11 +22,12 @@
 
 
 .money {
-  display: block!important;
 
-  & h2 { margin-bottom: 0; }
 
   @include for-mobile {
+    display: block!important;
+
+    & h2 { margin-bottom: 0; }
     text-align: center;
 
     &.number.large-m {
