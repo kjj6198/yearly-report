@@ -1,4 +1,13 @@
+.github {
+  padding: 0 8px;
 
+  @include for-mobile {
+    .number.large-x.underline {
+      font-size: map-get($font-size, medium-l);
+    }
+  }
+}
+.github > h2 { margin-bottom: 0; }
 .github-stat {
   display: flex;
   justify-content: space-around;
@@ -18,4 +27,6 @@
   width: 95%;
   margin-left: 3em;
   height: 350px;
+
+  @include for-mobile { margin-left: 1em; }
 }

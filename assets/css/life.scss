@@ -1,6 +1,10 @@
 .daily-life {
   position: relative;
   min-height: 500px;
+
+  & > .summary {
+    display: block;
+  }
 }
 
 .daily {
@@ -9,5 +13,25 @@
 
   @include for-mobile {
     display: block;
+  }
+
+  & h3 { margin-bottom: 0; }
+
+  & > div { margin-bottom: 2em; }
+}
+
+
+.money {
+  display: block!important;
+
+  & h2 { margin-bottom: 0; }
+
+  @include for-mobile {
+    text-align: center;
+
+    &.number.large-m {
+      text-align: center;
+      font-size: map-get($font-size, medium-s);
+    }
   }
 }

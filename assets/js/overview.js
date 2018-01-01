@@ -24,7 +24,7 @@ function drawTimeline(data) {
     .text(d => timeFormat(new Date(d.time)))
   events.append('h6')
     .attr('class', 'title')
-    .attr('style', (d, i) => (i % 2) == 0 ? `bottom: 50px` : null)
+    .attr('style', (d, i) => (i % 2) == 0 ? `bottom: 60px` : null)
     .html(d => d.link ? `<a href="${d.link}" target="_blank" rel="nofollow noreferer">${d.name}</a>` : d.name)
 }
 

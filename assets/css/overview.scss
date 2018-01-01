@@ -2,6 +2,10 @@
   padding: 0 1em;
   min-height: 300px;
   margin: 2em 0;
+
+  @include for-mobile {
+    display: none;
+  }
 }
 
 #overview {
@@ -10,17 +14,25 @@
   height: 2px;
   background-color: rgb(194, 199, 202);
 
+
   &:before {
     position: absolute;
     left: 0;
     font-size: map-get($font-size, normal);
     content: "2017-01-01";
+
+    @include for-desktop {
+      font-size: map-get($font-size, medium-s);
+    }
   }
 
   &:after {
     position: absolute;
     right: 0;
-    font-size: map-get($font-size, normal);
+
+    @include for-desktop {
+      font-size: map-get($font-size, medium-s);
+    }
 
     content: "2017-12-31";
   }
@@ -29,6 +41,7 @@
     display: inline-block;
     position: absolute;
     top: -15px;
+    text-align: center;
 
     .point {
       display: inline-block;
@@ -43,6 +56,9 @@
       font-size: map-get($font-size, x-small);
       position: relative;
       opacity: 0.75;
+      @include for-desktop {
+        font-size: map-get($font-size, small);
+      }
     }
   }
 
@@ -50,6 +66,10 @@
     display: inline-block;
     font-size: map-get($font-size, x-small);
     transform: translateX(-50%) translateY(-15px);
+
+    @include for-desktop {
+      font-size: map-get($font-size, small);
+    }
   }
 
   a {

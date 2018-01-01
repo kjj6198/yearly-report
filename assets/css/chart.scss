@@ -1,4 +1,5 @@
 .axis.x {
+  .domain { display: none; }
   .tick line { display: none; }
   text {
     fill: #586069;

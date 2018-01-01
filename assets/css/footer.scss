@@ -1,5 +1,6 @@
 .footer {
   margin-top: 3em;
+  padding: 0 8px;
   position: relative;
   min-height: 500px;
   height: 75vh;
@@ -16,6 +17,14 @@
     font-weight: 800;
     writing-mode: vertical-rl;
     font-size: map-get($font-size, x-large);
+
+    @include for-mobile {
+      display: block;
+      position: initial;
+      color: #aaa;
+      writing-mode: initial;
+      font-size: map-get($font-size, large-s);
+    }
   }
 
   .share {

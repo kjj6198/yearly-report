@@ -58,10 +58,11 @@ module.exports = {
     ],
   },
   plugins: [
-    process.env.NODE_ENV === 'production' ? new webpack.optimize.UglifyJsPlugin({ compress: true }): undefined,
+    new webpack.optimize.UglifyJsPlugin({ compress: true }),
     new ExtractTextPlugin({
       filename: '[name].bundle.css',
       allChunks: true,
+      disable: process.env.NODE_ENV !== 'production'
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin({

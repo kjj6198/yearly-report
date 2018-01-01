@@ -11,12 +11,24 @@
   height: 105vh;
   background-color: c(landing);
 
+  @include for-mobile {
+    display: block;
+    height: 100%;
+  }
+
   .intro {
     align-self: flex-start;
   }
 
-  .avatar {
+  .introduction > .title {
+    -webkit-text-stroke-color: initial;
+    -webkit-text-stroke-width: 0;
+    text-align: center;
+    font-size: map-get($font-size, medium-s);
+  }
 
+  .avatar {
+    text-align: center;
     img {
       width: 100px;
       height: 100px;
@@ -31,6 +43,9 @@
     line-height: 1.8;
     font-weight: 400;
 
+    @include for-mobile {
+      max-width: 100%;
+    }
   }
 
   & .title {
@@ -43,7 +58,13 @@
     -webkit-text-stroke-width: 1px;
   }
 
-  &:after {
+  .page-transition > a {
+    display: block;
+    text-align: center;
+    margin-right: 0!important;
+  }
+
+  &:before {
     position: absolute;
     z-index: 0;
     top: 1rem;
@@ -53,10 +74,19 @@
     content: "2017";
     font-weight: bold;
     font-size: map-get($font-size, x-large);
-    color: #1f1f1f;
+    color: lighten(#1f1f1f, 20%);
     opacity: 0.75;
 
     writing-mode: vertical-lr;
+
+    @include for-mobile {
+      display: block;
+      position: initial;
+      writing-mode: initial;
+      color: lighten(#1f1f1f, 20%);
+      font-size: map-get($font-size, large-s);
+
+    }
   }
 
   & > h4 { text-align: center; }

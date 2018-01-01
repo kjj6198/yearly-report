@@ -9,9 +9,19 @@ import './yaoya';
 import './travel';
 
 const landing = document.querySelector('.landing');
-for (let i = 0; i < 8; i++) {
-  new Star(landing).init();
+
+let num = 7;
+if (window.innerWidth > 1500) {
+  num = 15;
+  for (let i = 0; i < num; i++) {
+    new Star(landing).init();
+  }
+} else {
+  for (let i = 0; i < num; i++) {
+    new Star(landing).init();
+  }
 }
+
 
 const stars = Array.from(document.querySelectorAll('canvas.star'));
 window.addEventListener('scroll', e => {

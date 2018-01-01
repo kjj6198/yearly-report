@@ -13,6 +13,7 @@
 @import "./life";
 @import "./travel";
 @import "./footer";
+@import "./moon";
 
 body, html {
   color: #586069;
@@ -36,10 +37,10 @@ canvas.star {
   position: absolute;
   z-index: 2;
 
-  @for $i from 1 through 10 {
+  @for $i from 1 through 15 {
     &:nth-of-type(#{$i}n) {
-      left: #{random(95)+"%"};
-      top: #{random(95)+"%"};
+      left: #{random(90)+"%"};
+      top: #{random(90)+"%"};
     }
   }
 }
@@ -55,6 +56,8 @@ canvas.star {
 .text-gray-light {
   color: #e1e4e8;
 }
+
+em { font-style: normal; }
 
 hr {
   display: block;
@@ -77,6 +80,12 @@ hr {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-stretch: condensed;
+
+  @include for-mobile {
+    position: initial;
+    writing-mode: initial;
+    font-size: map-get($font-size, medium-l);
+  }
 }
 
 .title.life {
@@ -90,6 +99,12 @@ hr {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-stretch: condensed;
+
+  @include for-mobile {
+    position: initial;
+    writing-mode: initial;
+    display: block;
+  }
 }
 
 .learning strong {
@@ -112,6 +127,12 @@ hr {
   color: lighten(#209995, 10%);
   font-weight: 800;
   font-family: map-get($font, number);
+
+  &.large-l {
+    @include for-mobile {
+      font-size: map-get($font-size, medium-l);
+    }
+  }
 }
 
 .flex {
@@ -141,6 +162,7 @@ a {
 }
 
 .maxWidth600 {
+  width: 100%;
   max-width: 600px;
   margin: 0 auto;
 }
