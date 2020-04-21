@@ -11,6 +11,17 @@
   height: 105vh;
   background-color: c(landing);
 
+  .introduction {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > .wrapper {
+      width: 75%;
+      margin: auto;
+    }
+  }
+
   @include for-mobile {
     display: block;
     height: 100%;
@@ -51,7 +62,7 @@
   .page-transition > a {
     display: block;
     text-align: center;
-    margin-right: 0!important;
+    margin-right: 0 !important;
   }
 
   &:before {
@@ -61,7 +72,7 @@
     right: 2rem;
     margin: 0;
     line-height: 1;
-    content: "2017";
+    content: '2017';
     font-weight: bold;
     font-size: map-get($font-size, x-large);
     color: lighten(#1f1f1f, 20%);
@@ -75,11 +86,12 @@
       writing-mode: initial;
       color: lighten(#1f1f1f, 20%);
       font-size: map-get($font-size, large-s);
-
     }
   }
 
-  & > h4 { text-align: center; }
+  & > h4 {
+    text-align: center;
+  }
   counter-reset: subtitle;
   & .subtitle {
     display: inline-block;
@@ -92,11 +104,11 @@
     font-size: map-get($font-size, medium-s);
     cursor: pointer;
 
-    transition: .3s ease all;
+    transition: 0.3s ease all;
 
     &:before {
       display: inline;
-      margin-right: .5em;
+      margin-right: 0.5em;
       background-image: none;
       font-size: map-get($font-size, small);
       color: #fff;
